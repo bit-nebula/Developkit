@@ -1,0 +1,31 @@
+<Project>
+  <Import Project="Common.props"/>
+  <PropertyGroup>
+
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+
+    <VersionSuffix>alpha</VersionSuffix>
+
+    <RootNamespace>$(RootNamespacePrefix).$(MSBuildProjectName)</RootNamespace>
+    <AssemblyName>$(RootNamespacePrefix).$(MSBuildProjectName)</AssemblyName>
+  </PropertyGroup>
+
+  <!-- Package props -->
+  <PropertyGroup>
+    <Authors>$(MainAuthor)</Authors>
+    <PackageId>$(AssemblyName)</PackageId>
+    <PackageOutputPath>$(SolutionDir)packages/$(MSBuildProjectName)/</PackageOutputPath>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <Description>
+      一些代码片段, 尽量避免重复造轮子, 预览版的所有命名可能会发生巨大变化, 请谨慎使用!
+      Some code snippets, try to avoid reinventing the wheel, all names in the preview version may undergo significant changes, please use with caution!
+    </Description>
+  </PropertyGroup>
+  <!-- 生成的 Debug 版本放到其它目录以区别 -->
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <PackageOutputPath>$(PackageOutputPath)$(Configuration)/</PackageOutputPath>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,79 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35919.96
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Developkit.ApiResult", "src\Developkit.ApiResult\Developkit.ApiResult.csproj", "{C64DA5FB-C125-47B4-8FC2-8FDB024F2BAD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".SolutionItmes", ".SolutionItmes", "{9FA3D6BD-1EC1-3BA5-80CB-CE02773A58D5}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		Common.props = Common.props
+		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Developkit", "src\Developkit\Developkit.csproj", "{B3C9957C-54BC-48D3-B720-9042567505BC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "share", "share", "{6C482C5F-F88A-499A-9BDF-30A133197970}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Developkit.ApiResult", "share\Developkit.ApiResult\Developkit.ApiResult.shproj", "{1BA81420-DB7A-48F9-B2DB-845F9C8326D1}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Developkit.Windows", "share\Developkit.Windows\Developkit.Windows.shproj", "{5D83F34C-7FCF-44E3-9FC0-EAA7404D9183}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Developkit.Windows", "src\Developkit.Windows\Developkit.Windows.csproj", "{B991150E-1207-4BA8-BC3B-C0320174ED44}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{CD3E4460-28AA-4E6F-A731-4D46BD400697}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Developkit.Windows.Test", "test\Developkit.Windows.Test\Developkit.Windows.Test.csproj", "{E48F74B2-5D0F-49FD-B4D4-FC6BD37D16BA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C64DA5FB-C125-47B4-8FC2-8FDB024F2BAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C64DA5FB-C125-47B4-8FC2-8FDB024F2BAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C64DA5FB-C125-47B4-8FC2-8FDB024F2BAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C64DA5FB-C125-47B4-8FC2-8FDB024F2BAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3C9957C-54BC-48D3-B720-9042567505BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3C9957C-54BC-48D3-B720-9042567505BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3C9957C-54BC-48D3-B720-9042567505BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3C9957C-54BC-48D3-B720-9042567505BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B991150E-1207-4BA8-BC3B-C0320174ED44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B991150E-1207-4BA8-BC3B-C0320174ED44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B991150E-1207-4BA8-BC3B-C0320174ED44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B991150E-1207-4BA8-BC3B-C0320174ED44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E48F74B2-5D0F-49FD-B4D4-FC6BD37D16BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E48F74B2-5D0F-49FD-B4D4-FC6BD37D16BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E48F74B2-5D0F-49FD-B4D4-FC6BD37D16BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E48F74B2-5D0F-49FD-B4D4-FC6BD37D16BA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C64DA5FB-C125-47B4-8FC2-8FDB024F2BAD} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{B3C9957C-54BC-48D3-B720-9042567505BC} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{1BA81420-DB7A-48F9-B2DB-845F9C8326D1} = {6C482C5F-F88A-499A-9BDF-30A133197970}
+		{5D83F34C-7FCF-44E3-9FC0-EAA7404D9183} = {6C482C5F-F88A-499A-9BDF-30A133197970}
+		{B991150E-1207-4BA8-BC3B-C0320174ED44} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{E48F74B2-5D0F-49FD-B4D4-FC6BD37D16BA} = {CD3E4460-28AA-4E6F-A731-4D46BD400697}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8A303AFE-C29C-45B2-AB34-D8E402115BBF}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		share\Developkit.ApiResult\Developkit.ApiResult.projitems*{1ba81420-db7a-48f9-b2db-845f9c8326d1}*SharedItemsImports = 13
+		share\Developkit.Windows\Developkit.Windows.projitems*{5d83f34c-7fcf-44e3-9fc0-eaa7404d9183}*SharedItemsImports = 13
+		share\Developkit.ApiResult\Developkit.ApiResult.projitems*{b3c9957c-54bc-48d3-b720-9042567505bc}*SharedItemsImports = 5
+		share\Developkit.Windows\Developkit.Windows.projitems*{b3c9957c-54bc-48d3-b720-9042567505bc}*SharedItemsImports = 5
+		share\Developkit.Windows\Developkit.Windows.projitems*{b991150e-1207-4ba8-bc3b-c0320174ed44}*SharedItemsImports = 5
+		share\Developkit.ApiResult\Developkit.ApiResult.projitems*{c64da5fb-c125-47b4-8fc2-8fdb024f2bad}*SharedItemsImports = 5
+	EndGlobalSection
+EndGlobal
