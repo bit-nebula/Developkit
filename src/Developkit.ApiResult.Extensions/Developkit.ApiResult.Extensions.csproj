@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <VersionPrefix>0.0.0.1</VersionPrefix>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Link="README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Developkit.ApiResult\Developkit.ApiResult.csproj" />
+  </ItemGroup>
+
+  <Import Project="..\..\share\Developkit.ApiResult.Extensions\Developkit.ApiResult.Extensions.projitems" Label="Shared" />
+
+</Project>

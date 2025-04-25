@@ -1,5 +1,10 @@
 <Project>
   <Import Project="Common.props"/>
+
+  <PropertyGroup>
+    <TargetFrameworks>net6.0;net8.0;net9.0</TargetFrameworks>
+  </PropertyGroup>
+
   <PropertyGroup>
 
     <ImplicitUsings>enable</ImplicitUsings>
@@ -17,6 +22,7 @@
     <Authors>$(MainAuthor)</Authors>
     <PackageId>$(AssemblyName)</PackageId>
     <PackageOutputPath>$(SolutionDir)packages/$(MSBuildProjectName)/</PackageOutputPath>
+    <PackageProjectUrl>https://github.com/bit-nebula/Developkit.git</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Description>
@@ -28,4 +34,9 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
     <PackageOutputPath>$(PackageOutputPath)$(Configuration)/</PackageOutputPath>
   </PropertyGroup>
+  <!-- 共享项目就不要引用 LICENSE 文件了 -->
+  <ItemGroup Condition="'$(MSBuildProjectExtension)' != '.shproj'">
+    <None Include="$(SolutionDir)LICENSE" Link="LICENSE" Pack="true" PackagePath="\" />
+  </ItemGroup>
+  
 </Project>

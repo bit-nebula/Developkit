@@ -2,16 +2,16 @@
 
 using Microsoft.AspNetCore.Mvc;
 
-namespace BitNebula.Developkit.ApiResult;
+namespace BitNebula.Developkit.ApiResult.Extensions;
 
 public static class ApiResultExtension
 {
-    public static OkObjectResult Ok(this ApiResult result)
+    public static OkObjectResult Ok(this Developkit.ApiResult.ApiResult result)
     {
         return new OkObjectResult(result);
     }
 
-    public static BadRequestObjectResult Bad(this ApiResult result)
+    public static BadRequestObjectResult Bad(this Developkit.ApiResult.ApiResult result)
     {
         return new BadRequestObjectResult(result);
     }

@@ -31,6 +31,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{CD3E4460-2
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Developkit.Windows.Test", "test\Developkit.Windows.Test\Developkit.Windows.Test.csproj", "{E48F74B2-5D0F-49FD-B4D4-FC6BD37D16BA}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Developkit.ApiResult.Extensions", "share\Developkit.ApiResult.Extensions\Developkit.ApiResult.Extensions.shproj", "{50CD1EF9-54A3-42B1-BD4A-8DFCA2BE9758}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Developkit.ApiResult.Extensions", "src\Developkit.ApiResult.Extensions\Developkit.ApiResult.Extensions.csproj", "{80A5F807-C9B8-4248-BE09-CE25995EC0EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Developkit.Extensions", "src\Developkit.Extensions\Developkit.Extensions.csproj", "{39AF2A1F-A7DB-4734-9B3B-9E2AA3413AF8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +59,14 @@ Global
 		{E48F74B2-5D0F-49FD-B4D4-FC6BD37D16BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E48F74B2-5D0F-49FD-B4D4-FC6BD37D16BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E48F74B2-5D0F-49FD-B4D4-FC6BD37D16BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80A5F807-C9B8-4248-BE09-CE25995EC0EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80A5F807-C9B8-4248-BE09-CE25995EC0EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80A5F807-C9B8-4248-BE09-CE25995EC0EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80A5F807-C9B8-4248-BE09-CE25995EC0EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39AF2A1F-A7DB-4734-9B3B-9E2AA3413AF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39AF2A1F-A7DB-4734-9B3B-9E2AA3413AF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39AF2A1F-A7DB-4734-9B3B-9E2AA3413AF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39AF2A1F-A7DB-4734-9B3B-9E2AA3413AF8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,13 +78,18 @@ Global
 		{5D83F34C-7FCF-44E3-9FC0-EAA7404D9183} = {6C482C5F-F88A-499A-9BDF-30A133197970}
 		{B991150E-1207-4BA8-BC3B-C0320174ED44} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{E48F74B2-5D0F-49FD-B4D4-FC6BD37D16BA} = {CD3E4460-28AA-4E6F-A731-4D46BD400697}
+		{50CD1EF9-54A3-42B1-BD4A-8DFCA2BE9758} = {6C482C5F-F88A-499A-9BDF-30A133197970}
+		{80A5F807-C9B8-4248-BE09-CE25995EC0EB} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{39AF2A1F-A7DB-4734-9B3B-9E2AA3413AF8} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8A303AFE-C29C-45B2-AB34-D8E402115BBF}
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		share\Developkit.ApiResult\Developkit.ApiResult.projitems*{1ba81420-db7a-48f9-b2db-845f9c8326d1}*SharedItemsImports = 13
+		share\Developkit.ApiResult.Extensions\Developkit.ApiResult.Extensions.projitems*{39af2a1f-a7db-4734-9b3b-9e2aa3413af8}*SharedItemsImports = 5
 		share\Developkit.Windows\Developkit.Windows.projitems*{5d83f34c-7fcf-44e3-9fc0-eaa7404d9183}*SharedItemsImports = 13
+		share\Developkit.ApiResult.Extensions\Developkit.ApiResult.Extensions.projitems*{80a5f807-c9b8-4248-be09-ce25995ec0eb}*SharedItemsImports = 5
 		share\Developkit.ApiResult\Developkit.ApiResult.projitems*{b3c9957c-54bc-48d3-b720-9042567505bc}*SharedItemsImports = 5
 		share\Developkit.Windows\Developkit.Windows.projitems*{b3c9957c-54bc-48d3-b720-9042567505bc}*SharedItemsImports = 5
 		share\Developkit.Windows\Developkit.Windows.projitems*{b991150e-1207-4ba8-bc3b-c0320174ed44}*SharedItemsImports = 5
