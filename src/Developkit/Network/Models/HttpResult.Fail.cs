@@ -1,10 +1,10 @@
-﻿namespace BitNebula.Developkit.ApiResult;
+﻿namespace BitNebula.Developkit.Network.Models;
 
-public partial class ApiResult
+public partial class HttpResult
 {
-    public static ApiResult Fail()
+    public static HttpResult Fail()
     {
-        return new ApiResult()
+        return new HttpResult()
         {
             Code = ResultCode.Fail,
             Status = false,
@@ -12,9 +12,9 @@ public partial class ApiResult
         };
     }
 
-    public static ApiResult Fail(string message)
+    public static HttpResult Fail(string message)
     {
-        return new ApiResult()
+        return new HttpResult()
         {
             Code = ResultCode.Fail,
             Status = false,

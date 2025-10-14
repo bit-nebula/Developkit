@@ -2,26 +2,39 @@
   <Import Project="Common.props"/>
 
   <PropertyGroup>
-    <TargetFrameworks>net6.0;net8.0;net9.0</TargetFrameworks>
+    <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
   </PropertyGroup>
 
   <PropertyGroup>
-
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
+  </PropertyGroup>
 
-    <VersionSuffix>alpha</VersionSuffix>
-
+  <PropertyGroup>
     <RootNamespace>$(RootNamespacePrefix).$(MSBuildProjectName)</RootNamespace>
     <AssemblyName>$(RootNamespacePrefix).$(MSBuildProjectName)</AssemblyName>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <VersionPrefix>0.0.0.3</VersionPrefix>
+    <VersionSuffix>alpha</VersionSuffix>
   </PropertyGroup>
 
   <!-- Package props -->
   <PropertyGroup>
     <Authors>$(MainAuthor)</Authors>
     <PackageId>$(AssemblyName)</PackageId>
-    <PackageOutputPath>$(SolutionDir)packages/$(MSBuildProjectName)/</PackageOutputPath>
+
+    <!--<PackageOutputPath>$(SolutionDir)packages/$(MSBuildProjectName)/</PackageOutputPath>-->
+    <PackageOutputPath>$(SolutionDir)packages/$(VersionPrefix)/</PackageOutputPath>
+
+    <!-- 生成的 Debug 版本放到其它目录以区别 -->
+    <PackageOutputPath Condition="'$(Configuration)' == 'Debug'">$(PackageOutputPath)$(Configuration)/</PackageOutputPath>
+
+    <!-- 版本号不带后缀时修改 Package 生成的目录 -->
+    <PackageOutputPath Condition="'$(VersionSuffix)' != ''">$(SolutionDir)packages/$(VersionPrefix)-$(VersionSuffix)/</PackageOutputPath>
+
     <PackageProjectUrl>https://github.com/bit-nebula/Developkit.git</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
@@ -30,13 +43,10 @@
       Some code snippets, try to avoid reinventing the wheel, all names in the preview version may undergo significant changes, please use with caution!
     </Description>
   </PropertyGroup>
-  <!-- 生成的 Debug 版本放到其它目录以区别 -->
-  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
-    <PackageOutputPath>$(PackageOutputPath)$(Configuration)/</PackageOutputPath>
-  </PropertyGroup>
+
   <!-- 共享项目就不要引用 LICENSE 文件了 -->
   <ItemGroup Condition="'$(MSBuildProjectExtension)' != '.shproj'">
     <None Include="$(SolutionDir)LICENSE" Link="LICENSE" Pack="true" PackagePath="\" />
   </ItemGroup>
-  
+
 </Project>

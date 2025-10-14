@@ -1,6 +1,6 @@
-﻿namespace BitNebula.Developkit.ApiResult;
+﻿namespace BitNebula.Developkit.Network.Models;
 
-public partial class ApiResult
+public partial class HttpResult
 {
     private bool? _status = null;
     public bool Status
@@ -11,9 +11,9 @@ public partial class ApiResult
 
     public ResultCode Code { get; set; }
     public string Message { get; set; } = null!;
-    public ApiResult() { }
+    public HttpResult() { }
 
-    public ApiResult(ResultCode resultCode, string message)
+    public HttpResult(ResultCode resultCode, string message)
     {
         Code = resultCode;
         Message = message;

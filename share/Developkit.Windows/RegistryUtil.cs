@@ -111,6 +111,13 @@ public class RegistryUtil : IDisposable
         currentKey.SetValue(keyName, value, RegistryValueKind.String);
     }
 
+    public void DeleteValue(string keyName)
+    {
+        EnsureCurrentRegistryKey();
+
+        currentKey.DeleteValue(keyName, false);
+    }
+
     [MemberNotNull(nameof(currentKey))]
     private void EnsureCurrentRegistryKey()
     {
