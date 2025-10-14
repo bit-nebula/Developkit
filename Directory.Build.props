@@ -17,7 +17,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <VersionPrefix>0.0.0.3</VersionPrefix>
+    <VersionPrefix>0.0.0.4</VersionPrefix>
     <VersionSuffix>alpha</VersionSuffix>
   </PropertyGroup>
 
@@ -27,13 +27,13 @@
     <PackageId>$(AssemblyName)</PackageId>
 
     <!--<PackageOutputPath>$(SolutionDir)packages/$(MSBuildProjectName)/</PackageOutputPath>-->
-    <PackageOutputPath>$(SolutionDir)packages/$(VersionPrefix)/</PackageOutputPath>
+    <PackageOutputPath>$(SolutionDir)packages\$(PackageId)\</PackageOutputPath>
 
     <!-- 生成的 Debug 版本放到其它目录以区别 -->
-    <PackageOutputPath Condition="'$(Configuration)' == 'Debug'">$(PackageOutputPath)$(Configuration)/</PackageOutputPath>
+    <PackageOutputPath Condition="'$(Configuration)' == 'Debug'">$(PackageOutputPath)$(Configuration)\</PackageOutputPath>
 
     <!-- 版本号不带后缀时修改 Package 生成的目录 -->
-    <PackageOutputPath Condition="'$(VersionSuffix)' != ''">$(SolutionDir)packages/$(VersionPrefix)-$(VersionSuffix)/</PackageOutputPath>
+    <!--<PackageOutputPath Condition="'$(VersionSuffix)' != ''">$(SolutionDir)packages/$(VersionPrefix)-$(VersionSuffix)/</PackageOutputPath>-->
 
     <PackageProjectUrl>https://github.com/bit-nebula/Developkit.git</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -49,4 +49,9 @@
     <None Include="$(SolutionDir)LICENSE" Link="LICENSE" Pack="true" PackagePath="\" />
   </ItemGroup>
 
-</Project>
+  <Target Name="Debug" AfterTargets="Pack">
+    <Message Importance="high" Text="Configuration = $(Configuration)" />
+    <Message Importance="high" Text="PackageOutputPath = $(PackageOutputPath)" />
+  </Target>
+
+  </Project>

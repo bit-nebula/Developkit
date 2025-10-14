@@ -1,6 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
-using Microsoft.Extensions.Options;
 
 namespace BitNebula.Developkit.Network;
 
@@ -14,14 +14,12 @@ public static class ServiceCollectionExtension
     public static IServiceCollection AddHttpRequest(this IServiceCollection services, string name, Action<HttpRequestConfigure> configureServiceOptions)
     {
         services.Configure(name, configureServiceOptions);
-
         services.AddHttpClient(name, (serviceProvide, httpClient) =>
         {
             var configureProvider = serviceProvide.GetRequiredService<IHttpRequestConfigureProvider>();
             var config = configureProvider.GetConfiguration(name);
             httpClient.BaseAddress = new Uri(config.Domain);
             httpClient.Timeout = TimeSpan.FromSeconds(config.Timeout);
-
         });
         services.TryAddSingleton<IHttpRequestFactory, HttpRequestFactory>();
         services.TryAddSingleton<IHttpRequestConfigureProvider, HttpRequestConfigureProvider>();
@@ -29,24 +27,27 @@ public static class ServiceCollectionExtension
         return services;
     }
 
-    //public static IServiceCollection AddHttpRequest(this IServiceCollection services, IConfiguration namedConfigurationSection)
-    //{
-    //    var configurationSection = namedConfigurationSection.GetSection(nameof(HttpRequestConfigure));
-    //    return services.AddHttpRequest(configurationSection);
-    //}
+    public static IServiceCollection AddHttpRequest(this IServiceCollection services, string name, IConfiguration configuration)
+    {
+        var configurationSection = configuration.GetSection(name);
+        return services.AddHttpRequest(name, configurationSection);
+    }
 
-    //public static IServiceCollection AddHttpRequest(this IServiceCollection services, IConfigurationSection configurationSection)
-    //{
-    //    services.AddOptions<HttpRequestConfigure>(HttpRequestConstant.DefaultHttpClientName).Bind(configurationSection);
-    //    services.AddHttpClient(HttpRequestConstant.DefaultHttpClientName, (serviceProvide, httpClient) =>
-    //    {
-    //        var httpRequestOptions = serviceProvide.GetRequiredService<IOptions<HttpRequestConfigure>>();
-    //        httpClient.BaseAddress = new Uri(httpRequestOptions.Value.Domain);
-    //        httpClient.Timeout = TimeSpan.FromSeconds(httpRequestOptions.Value.Timeout);
-    //    });
-    //    services.AddKeyedSingleton<IHttpRequest, HttpRequest>(HttpRequestConstant.DefaultHttpClientName);
-    //    return services;
-    //}
+    public static IServiceCollection AddHttpRequest(this IServiceCollection services, string name, IConfigurationSection configurationSection)
+    {
+        services.AddOptions<HttpRequestConfigure>(name).Bind(configurationSection);
+        services.AddHttpClient(name, (serviceProvide, httpClient) =>
+        {
+            var configureProvider = serviceProvide.GetRequiredService<IHttpRequestConfigureProvider>();
+            var config = configureProvider.GetConfiguration(name);
+            httpClient.BaseAddress = new Uri(config.Domain);
+            httpClient.Timeout = TimeSpan.FromSeconds(config.Timeout);
+        });
+        services.TryAddSingleton<IHttpRequestFactory, HttpRequestFactory>();
+        services.TryAddSingleton<IHttpRequestConfigureProvider, HttpRequestConfigureProvider>();
+        services.TryAddKeyedSingleton<IHttpRequest, HttpRequest>(name);
+        return services;
+    }
 
     //public static IServiceCollection AddMulitpleHttpRequest(this IServiceCollection services, Action<Dictionary<string, HttpRequestConfigure>> configureServiceOptions)
     //{
