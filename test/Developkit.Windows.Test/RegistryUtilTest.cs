@@ -1,7 +1,8 @@
 ﻿using System.Runtime.Versioning;
+using BitNebula.Developkit.Windows;
 using Microsoft.Win32;
 
-namespace BitNebula.Developkit.Windows.Test;
+namespace Nebula.Developkit.Windows.Test;
 
 [TestClass]
 public sealed class RegistryUtilTest

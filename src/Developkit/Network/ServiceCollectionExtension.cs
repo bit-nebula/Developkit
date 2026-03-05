@@ -2,7 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
-namespace BitNebula.Developkit.Network;
+namespace Nebula.Developkit.Network;
 
 public static class ServiceCollectionExtension
 {

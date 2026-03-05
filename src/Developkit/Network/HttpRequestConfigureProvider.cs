@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 
-namespace BitNebula.Developkit.Network;
+namespace Nebula.Developkit.Network;
 
 public interface IHttpRequestConfigureProvider
 {

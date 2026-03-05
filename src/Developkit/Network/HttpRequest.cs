@@ -6,7 +6,7 @@ using System.Text.Json.Serialization;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
-namespace BitNebula.Developkit.Network;
+namespace Nebula.Developkit.Network;
 
 public interface IHttpRequest
 {

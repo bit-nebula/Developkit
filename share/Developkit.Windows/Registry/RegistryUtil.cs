@@ -2,7 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Versioning;
 
-namespace BitNebula.Developkit.Windows;
+namespace Nebula.Developkit.Windows.Registry;
 
 [SupportedOSPlatform("windows")]
 public class RegistryUtil : IDisposable
@@ -10,7 +10,6 @@ public class RegistryUtil : IDisposable
     private bool disposedValue;
     private readonly RegistryKey rootKey;
 
-    [AllowNull]
     private RegistryKey? currentKey;
 
     private RegistryUtil(RegistryHive registryHive, RegistryView? registryView)
@@ -57,7 +56,6 @@ public class RegistryUtil : IDisposable
     /// 打开或创建注册表子项
     /// </summary>
     /// <param name="subkeyPath"></param>
-    /// <param name="writable"></param>
     /// <returns>True: Open Subkey, False: Create Subkey</returns>
     public bool OpenOrCreateSubkey(string subkeyPath)
     {

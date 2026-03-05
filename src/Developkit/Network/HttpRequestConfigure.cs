@@ -1,4 +1,4 @@
-﻿namespace BitNebula.Developkit.Network;
+﻿namespace Nebula.Developkit.Network;
 
 public class HttpRequestConfigure
 {

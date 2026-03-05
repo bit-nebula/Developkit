@@ -1,4 +1,4 @@
-﻿namespace BitNebula.Developkit.IO;
+﻿namespace Nebula.Developkit.IO;
 
 public static class DirectoryInfoExtension
 {

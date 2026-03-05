@@ -1,4 +1,4 @@
-﻿namespace BitNebula.Developkit.Network.Models;
+﻿namespace Nebula.Developkit.Network.Models;
 
 public enum ResultCode
 {

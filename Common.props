@@ -2,7 +2,7 @@
   <PropertyGroup>
 
     <MainAuthor>BitNebula</MainAuthor>
-    <RootNamespacePrefix>$(MainAuthor)</RootNamespacePrefix>
+    <RootNamespacePrefix>Nebula</RootNamespacePrefix>
     
   </PropertyGroup>
 </Project>

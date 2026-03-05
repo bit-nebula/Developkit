@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace BitNebula.Developkit.Network;
+namespace Nebula.Developkit.Network;
 
 public interface IHttpRequestFactory
 {

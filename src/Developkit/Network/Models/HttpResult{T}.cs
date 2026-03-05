@@ -1,4 +1,6 @@
-﻿namespace BitNebula.Developkit.Network.Models;
+﻿using BitNebula.Developkit.Network.Models;
+
+namespace Nebula.Developkit.Network.Models;
 
 public class HttpResult<T> : HttpResult
 {

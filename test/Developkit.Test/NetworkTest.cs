@@ -5,11 +5,11 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BitNebula.Developkit.Network;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
+using Nebula.Developkit.Network;
 
-namespace BitNebula.Developkit.Test;
+namespace Nebula.Developkit.Test;
 
 
 [TestClass]

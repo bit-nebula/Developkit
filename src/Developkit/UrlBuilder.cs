@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace BitNebula.Developkit;
+namespace Nebula.Developkit;
 
 public class UrlBuilder
 {

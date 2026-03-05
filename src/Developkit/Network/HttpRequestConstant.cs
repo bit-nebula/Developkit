@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BitNebula.Developkit.Network;
+namespace Nebula.Developkit.Network;
 
 internal static class HttpRequestConstant
 {
