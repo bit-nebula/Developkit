@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace Nebula.DevelopKit.Web;
+namespace BitNebula.DevelopKit.Hosting;
 
 public static class CrossPlatformHostingExtensions
 {
