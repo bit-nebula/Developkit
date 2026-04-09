@@ -1,57 +1,54 @@
 <Project>
-  <Import Project="Common.props"/>
 
-  <PropertyGroup>
-    <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
-  </PropertyGroup>
+	<Import Project="Custom.props"/>
 
-  <PropertyGroup>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <LangVersion>latest</LangVersion>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+	</PropertyGroup>
 
-  <PropertyGroup>
-    <RootNamespace>$(RootNamespacePrefix).$(MSBuildProjectName)</RootNamespace>
-    <AssemblyName>$(RootNamespacePrefix).$(MSBuildProjectName)</AssemblyName>
-  </PropertyGroup>
+	<PropertyGroup>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<LangVersion>latest</LangVersion>
+	</PropertyGroup>
 
-  <PropertyGroup>
-    <VersionPrefix>0.0.0.4</VersionPrefix>
-    <VersionSuffix>alpha</VersionSuffix>
-  </PropertyGroup>
+	<PropertyGroup>
+		<RootNamespace>$(RootNamespacePrefix).$(MSBuildProjectName)</RootNamespace>
+		<AssemblyName>$(RootNamespacePrefix).$(MSBuildProjectName)</AssemblyName>
+	</PropertyGroup>
 
-  <!-- Package props -->
-  <PropertyGroup>
-    <Authors>$(MainAuthor)</Authors>
-    <PackageId>$(AssemblyName)</PackageId>
+	<PropertyGroup>
+		<VersionPrefix>0.0.0.1</VersionPrefix>
+		<VersionSuffix>alpha</VersionSuffix>
+	</PropertyGroup>
 
-    <!--<PackageOutputPath>$(SolutionDir)packages/$(MSBuildProjectName)/</PackageOutputPath>-->
-    <PackageOutputPath>$(SolutionDir)packages\$(PackageId)\</PackageOutputPath>
+	<!-- Package props -->
+	<PropertyGroup>
+		<Authors>$(MainAuthor)</Authors>
+		<PackageId>$(MainAuthor).$(MSBuildProjectName)</PackageId>
 
-    <!-- 生成的 Debug 版本放到其它目录以区别 -->
-    <PackageOutputPath Condition="'$(Configuration)' == 'Debug'">$(PackageOutputPath)$(Configuration)\</PackageOutputPath>
+		<PackageOutputPath>$(SolutionDir)packages\$(PackageId)\</PackageOutputPath>
 
-    <!-- 版本号不带后缀时修改 Package 生成的目录 -->
-    <!--<PackageOutputPath Condition="'$(VersionSuffix)' != ''">$(SolutionDir)packages/$(VersionPrefix)-$(VersionSuffix)/</PackageOutputPath>-->
+		<!-- 生成的 Debug 版本放到其它目录以区别 -->
+		<PackageOutputPath Condition="'$(Configuration)' == 'Debug'">$(PackageOutputPath)$(Configuration)\</PackageOutputPath>
 
-    <PackageProjectUrl>https://github.com/bit-nebula/Developkit.git</PackageProjectUrl>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <Description>
-      一些代码片段, 尽量避免重复造轮子, 预览版的所有命名可能会发生巨大变化, 请谨慎使用!
-      Some code snippets, try to avoid reinventing the wheel, all names in the preview version may undergo significant changes, please use with caution!
-    </Description>
-  </PropertyGroup>
+		<!-- 版本号不带后缀时修改 Package 生成的目录 -->
+		<!--<PackageOutputPath Condition="'$(VersionSuffix)' != ''">$(SolutionDir)packages/$(VersionPrefix)-$(VersionSuffix)/</PackageOutputPath>-->
 
-  <!-- 共享项目就不要引用 LICENSE 文件了 -->
-  <ItemGroup Condition="'$(MSBuildProjectExtension)' != '.shproj'">
-    <None Include="$(SolutionDir)LICENSE" Link="LICENSE" Pack="true" PackagePath="\" />
-  </ItemGroup>
+		<PackageProjectUrl>https://github.com/bit-nebula/DevelopKit.git</PackageProjectUrl>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<Description>
+			一些代码片段, 尽量避免重复造轮子, 预览版的所有命名可能会发生巨大变化, 请谨慎使用!
+			Some code snippets, try to avoid reinventing the wheel, all names in the preview version may undergo significant changes, please use with caution!
+		</Description>
+	</PropertyGroup>
 
-  <Target Name="Debug" AfterTargets="Pack">
-    <Message Importance="high" Text="Configuration = $(Configuration)" />
-    <Message Importance="high" Text="PackageOutputPath = $(PackageOutputPath)" />
-  </Target>
+	<!-- 共享项目就不要引用 LICENSE 文件了 -->
+	<ItemGroup Condition="'$(MSBuildProjectExtension)' != '.shproj'">
+		<None Include="$(SolutionDir)LICENSE" Link="LICENSE" Pack="true" PackagePath="\" />
+	</ItemGroup>
 
-  </Project>
+	<Import Project="$(SolutionDir)BuildMessage.props" Condition="Exists('$(SolutionDir)BuildMessage.props')"/>
+
+</Project>

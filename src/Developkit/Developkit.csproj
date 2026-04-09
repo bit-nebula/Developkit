@@ -1,8 +1,23 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <Compile Remove="IO\DirectoryHelper.cs" />
-    <Compile Remove="Network\HttpRequest.Post.cs" />
+    <Compile Remove="Network\**" />
+    <EmbeddedResource Remove="Network\**" />
+    <None Remove="Network\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="ServiceUtil.cs" />
+    <Compile Remove="Windows\EnvironmentVariable.cs" />
+    <Compile Remove="Windows\EnvironmentVariableItem.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Network\Models\HttpResult.cs" />
+    <Compile Include="Network\Models\HttpResult.Fail.cs" />
+    <Compile Include="Network\Models\HttpResult.Success.cs" />
+    <Compile Include="Network\Models\HttpResult{T}.cs" />
+    <Compile Include="Network\Models\ResultCode.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -10,13 +25,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Http" Version="9.0.4" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.4" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="9.0.4" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.4" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <!--<PackageReference Include="Microsoft.Extensions.Http" Version="9.0.4" />-->
+    <!--<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.4" />-->
+    <!--<PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="9.0.4" />-->
+    <!--<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.4" />-->
+    <!--<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />-->
   </ItemGroup>
-
-  <Import Project="..\..\share\Developkit.Windows\Developkit.Windows.projitems" Label="Shared" />
 
 </Project>

@@ -1,6 +1,6 @@
-﻿using Nebula.Developkit.Network.Models;
+﻿using Nebula.DevelopKit.Network.Models;
 
-namespace BitNebula.Developkit.Network.Models;
+namespace BitNebula.DevelopKit.Network.Models;
 
 public partial class HttpResult
 {

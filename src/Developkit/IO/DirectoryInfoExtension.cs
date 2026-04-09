@@ -1,33 +1,55 @@
-﻿namespace Nebula.Developkit.IO;
+﻿namespace Nebula.DevelopKit.IO;
 
 public static class DirectoryInfoExtension
 {
-    public static void CopyTo(this DirectoryInfo sourceDirectory, string target, bool recursive)
+    #region MergeTo Group One
+
+    public static void MergeTo(this DirectoryInfo sourceDirectory, string targetPath)
     {
-        CopyTo(sourceDirectory, target, recursive, false);
+        MergeTo(sourceDirectory, targetPath, false, false);
     }
 
-    public static void CopyTo(this DirectoryInfo sourceDirectory, string target, bool recursive, bool overwrite)
+    public static void MergeTo(this DirectoryInfo sourceDirectory, string targetPath, bool recursive)
     {
-        var targetDirectory = new DirectoryInfo(target);
-        CopyTo(sourceDirectory, targetDirectory, recursive, overwrite);
+        MergeTo(sourceDirectory, targetPath, recursive, false);
     }
 
-    public static void CopyTo(this DirectoryInfo sourceDirectory, DirectoryInfo target, bool recursive)
+    public static void MergeTo(this DirectoryInfo sourceDirectory, string targetPath, bool recursive, bool overwrite)
     {
-        CopyTo(sourceDirectory, target, recursive, false);
+        var targetDirectory = new DirectoryInfo(targetPath);
+        MergeTo(sourceDirectory, targetDirectory, recursive, overwrite);
     }
 
-    public static void CopyTo(this DirectoryInfo sourceDirectory, DirectoryInfo target, bool recursive, bool overwrite)
-    {
-        if (!sourceDirectory.Exists) throw new DirectoryNotFoundException($"Source directory '{sourceDirectory.FullName}' does not exist.");
+    #endregion
 
-        if (!target.Exists) target.Create();
+    #region MergeTo Group Two
+
+    public static void MergeTo(this DirectoryInfo sourceDirectory, DirectoryInfo targetDirectory)
+    {
+        MergeTo(sourceDirectory, targetDirectory, false, false);
+    }
+
+    public static void MergeTo(this DirectoryInfo sourceDirectory, DirectoryInfo targetDirectory, bool recursive)
+    {
+        MergeTo(sourceDirectory, targetDirectory, recursive, false);
+    }
+
+    public static void MergeTo(this DirectoryInfo sourceDirectory, DirectoryInfo targetDirectory, bool recursive, bool overwrite)
+    {
+        if (!sourceDirectory.Exists)
+        {
+            throw new DirectoryNotFoundException($"Source directory '{sourceDirectory.FullName}' does not exist.");
+        }
+
+        if (!targetDirectory.Exists)
+        {
+            targetDirectory.Create();
+        }
 
         FileInfo[] files = sourceDirectory.GetFiles();
         foreach (FileInfo file in files)
         {
-            var targetFilePath = Path.Combine(target.FullName, file.Name);
+            var targetFilePath = Path.Combine(targetDirectory.FullName, file.Name);
             file.CopyTo(targetFilePath, overwrite);
         }
 
@@ -36,8 +58,27 @@ public static class DirectoryInfoExtension
             DirectoryInfo[] directories = sourceDirectory.GetDirectories();
             foreach (DirectoryInfo directory in directories)
             {
-                directory.CopyTo(Path.Combine(target.FullName, directory.Name), recursive, overwrite);
+                DirectoryInfo newTargetDirectory = targetDirectory.Combine(directory);
+                directory.MergeTo(newTargetDirectory, recursive, overwrite);
             }
         }
     }
+
+    #endregion
+
+    #region Combine Group
+
+    public static DirectoryInfo Combine(this DirectoryInfo sourceDirectory, string relativePath)
+    {
+        string path = Path.Combine(sourceDirectory.FullName, relativePath);
+        return new DirectoryInfo(path);
+    }
+
+    public static DirectoryInfo Combine(this DirectoryInfo sourceDirectory, DirectoryInfo targetDirectory)
+    {
+        string path = Path.Combine(sourceDirectory.FullName, targetDirectory.Name);
+        return new DirectoryInfo(path);
+    }
+
+    #endregion
 }

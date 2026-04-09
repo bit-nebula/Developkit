@@ -1,32 +1,77 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BitNebula.Developkit.IO;
+﻿namespace Nebula.DevelopKit.IO;
 
 public class DirectoryHelper
 {
-    public static void CopyDirectory(string sourceDirectory, string targetPath, bool recursive, bool overwrite = false)
+    #region Group One
+
+    public static void CopyDirectory(string sourceDirectory, string targetPath)
+    {
+        CopyDirectory(new DirectoryInfo(sourceDirectory), targetPath, false, false);
+    }
+
+    public static void CopyDirectory(string sourceDirectory, string targetPath, bool recursive)
+    {
+        CopyDirectory(new DirectoryInfo(sourceDirectory), targetPath, recursive, false);
+    }
+
+    public static void CopyDirectory(string sourceDirectory, string targetPath, bool recursive, bool overwrite)
     {
         CopyDirectory(new DirectoryInfo(sourceDirectory), targetPath, recursive, overwrite);
     }
 
-    public static void CopyDirectory(DirectoryInfo sourceDirectory, string targetPath, bool recursive, bool overwrite = false)
+    #endregion
+
+    #region Group Two
+
+    public static void CopyDirectory(DirectoryInfo sourceDirectory, string targetPath)
+    {
+        CopyDirectory(sourceDirectory, targetPath, false, false);
+    }
+
+    public static void CopyDirectory(DirectoryInfo sourceDirectory, string targetPath, bool recursive)
+    {
+        CopyDirectory(sourceDirectory, targetPath, recursive, false);
+    }
+
+    public static void CopyDirectory(DirectoryInfo sourceDirectory, string targetPath, bool recursive, bool overwrite)
+    {
+        CopyDirectory(sourceDirectory, new DirectoryInfo(targetPath), recursive, overwrite);
+    }
+
+    #endregion
+
+    #region Group Three
+
+    public static void CopyDirectory(DirectoryInfo sourceDirectory, DirectoryInfo targetDirectory)
+    {
+        CopyDirectory(sourceDirectory, targetDirectory, false, false);
+    }
+
+    public static void CopyDirectory(DirectoryInfo sourceDirectory, DirectoryInfo targetDirectory, bool recursive)
+    {
+        CopyDirectory(sourceDirectory, targetDirectory, recursive, false);
+    }
+
+    public static void CopyDirectory(DirectoryInfo sourceDirectory, DirectoryInfo targetDirectory, bool recursive, bool overwrite)
     {
         // Check if the source directory exists
-        if (!sourceDirectory.Exists) throw new DirectoryNotFoundException($"Source directory not found: {sourceDirectory.FullName}");
+        if (!sourceDirectory.Exists)
+        {
+            throw new DirectoryNotFoundException($"Source directory not found: {sourceDirectory.FullName}");
+        }
 
         // Create the destination directory
-        Directory.CreateDirectory(targetPath);
+        if (!targetDirectory.Exists)
+        {
+            targetDirectory.Create();
+        }
 
         // Get the files in the source directory and copy to the destination directory
         FileInfo[] files = sourceDirectory.GetFiles();
         foreach (FileInfo file in files)
         {
-            string targetFilePath = Path.Combine(targetPath, file.Name);
-            file.CopyTo(targetFilePath, overwrite: true);
+            string targetFilePath = Path.Combine(targetDirectory.FullName, file.Name);
+            file.CopyTo(targetFilePath, overwrite);
         }
 
         // If recursive and copying subdirectories, recursively call this method
@@ -36,9 +81,11 @@ public class DirectoryHelper
             DirectoryInfo[] dirs = sourceDirectory.GetDirectories();
             foreach (DirectoryInfo subDir in dirs)
             {
-                string newDestinationDir = Path.Combine(targetPath, subDir.Name);
-                CopyDirectory(subDir, newDestinationDir, recursive, overwrite);
+                DirectoryInfo newDirectory = targetDirectory.Combine(subDir);
+                CopyDirectory(subDir, newDirectory, recursive, overwrite);
             }
         }
     }
+
+    #endregion
 }

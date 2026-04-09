@@ -1,0 +1,16 @@
+<Project>
+
+  <Target Name="PrintBuildInfo" BeforeTargets="Build" Condition="'$(EnableBuildMessage)' == 'true' or '$(EnableBuildMessage)' == 'True'">
+    <Message Text="======== Build Message ========" Importance="high" />
+    <Message Text="MSBuildThisFileDirectory: $(MSBuildThisFileDirectory)" Importance="high" />
+    <Message Text="MSBuildProjectFile: $(MSBuildProjectFile)" Importance="high" />
+    <Message Text="SolutionDir: $(SolutionDir)" Importance="high" />
+    <Message Text="AssemblyName: $(AssemblyName)" Importance="high" />
+    <Message Text="Configuration: $(Configuration)" Importance="high" />
+    <Message Text="TargetFramework: $(TargetFramework)" Importance="high" />
+    <Message Text="OutputPath: $(OutputPath)" Importance="high" />
+	<Message Text="PackageOutputPath = $(PackageOutputPath)" Importance="high" />
+	<Message Text="==============================" Importance="high" />
+  </Target>
+
+</Project>

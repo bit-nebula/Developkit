@@ -1,0 +1,9 @@
+<Project>
+
+  <PropertyGroup>
+    <!--<MainAuthor>BitNebula</MainAuthor>-->
+	<MainAuthor>bit-nebula</MainAuthor>
+    <RootNamespacePrefix>Nebula</RootNamespacePrefix>
+  </PropertyGroup>
+
+</Project>
