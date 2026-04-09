@@ -1,19 +1,19 @@
 ﻿using System.Text;
 
-namespace Nebula.Developkit;
+namespace Nebula.DevelopKit;
 
-public class UrlBuilder
+public class UriBuilder
 {
     private const char SLASH = '/';
 
     private readonly StringBuilder builder;
 
-    public UrlBuilder()
+    public UriBuilder()
     {
         builder = new StringBuilder(512);
     }
 
-    public UrlBuilder(string? uri) : this()
+    public UriBuilder(string? uri) : this()
     {
         if (!string.IsNullOrEmpty(uri))
         {
@@ -23,7 +23,7 @@ public class UrlBuilder
 
     public bool EndsWithSlash => builder.Length > 0 && builder[^1] == '/';
 
-    public UrlBuilder AppendSlash()
+    public UriBuilder AppendSlash()
     {
         if (!EndsWithSlash)
         {
@@ -32,7 +32,7 @@ public class UrlBuilder
         return this;
     }
 
-    public UrlBuilder Append(string? uri)
+    public UriBuilder Append(string? uri)
     {
         if (string.IsNullOrEmpty(uri)) return this;
 
