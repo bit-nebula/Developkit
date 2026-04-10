@@ -1,27 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
-	</PropertyGroup>
-	
+  <PropertyGroup>
+    <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
+  </PropertyGroup>
+
   <ItemGroup>
-    <Compile Remove="Network\**" />
-    <EmbeddedResource Remove="Network\**" />
-    <None Remove="Network\**" />
+    <!-- 嵌套文件配置 -->
+    <Compile Update="Network\Models\HttpResult.*.cs">
+        <DependentUpon>Network\Models\HttpResult.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
     <Compile Remove="ServiceUtil.cs" />
     <Compile Remove="Windows\EnvironmentVariable.cs" />
     <Compile Remove="Windows\EnvironmentVariableItem.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="Network\Models\HttpResult.cs" />
-    <Compile Include="Network\Models\HttpResult.Fail.cs" />
-    <Compile Include="Network\Models\HttpResult.Success.cs" />
-    <Compile Include="Network\Models\HttpResult{T}.cs" />
-    <Compile Include="Network\Models\ResultCode.cs" />
   </ItemGroup>
 
   <ItemGroup>

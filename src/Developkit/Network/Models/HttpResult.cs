@@ -3,6 +3,7 @@
 public partial class HttpResult
 {
     private bool? _status = null;
+
     public bool Status
     {
         get => _status ?? Code == ResultCode.Success;
@@ -11,6 +12,8 @@ public partial class HttpResult
 
     public ResultCode Code { get; set; }
     public string Message { get; set; } = null!;
+    public object? Data { get; set; }
+
     public HttpResult() { }
 
     public HttpResult(ResultCode resultCode, string message)

@@ -2,7 +2,7 @@
 
 public class HttpResult<T> : HttpResult
 {
-    public T? Data { get; set; }
+    public new T? Data { get; set; }
 
     public HttpResult() { }
 

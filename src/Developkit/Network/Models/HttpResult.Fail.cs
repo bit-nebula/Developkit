@@ -21,4 +21,15 @@ public partial class HttpResult
             Message = message,
         };
     }
+
+    public static HttpResult Fail(string message, object data)
+    {
+        return new HttpResult()
+        {
+            Code = ResultCode.Fail,
+            Status = false,
+            Message = message,
+            Data = data,
+        };
+    }
 }
