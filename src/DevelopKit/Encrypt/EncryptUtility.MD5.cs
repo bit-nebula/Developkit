@@ -24,8 +24,6 @@ public partial class EncryptUtility
     /// <returns></returns>
     public static string CalcMd5(byte[] bytes)
     {
-        //using MD5 md5 = MD5.Create();
-        //var hash = md5.ComputeHash(bytes);
         var hash = MD5.HashData(bytes);
         var strResult = BitConverter.ToString(hash);
         string md5_value = strResult.Replace("-", "").ToLower();
