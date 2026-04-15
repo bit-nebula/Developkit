@@ -4,10 +4,15 @@
     <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
   </PropertyGroup>
 
+  <!-- 嵌套文件配置 -->
   <ItemGroup>
-    <!-- 嵌套文件配置 -->
+    <!-- HttpResult.cs -->
     <Compile Update="Network\Models\HttpResult.*.cs">
-        <DependentUpon>Network\Models\HttpResult.cs</DependentUpon>
+      <DependentUpon>Network\Models\HttpResult.cs</DependentUpon>
+    </Compile>
+    <!-- EncryptUtility.cs -->
+    <Compile Update="Encrypt\EncryptUtility.*.cs">
+      <DependentUpon>Encrypt\EncryptUtility.cs</DependentUpon>
     </Compile>
   </ItemGroup>
 
