@@ -2,3 +2,6 @@
 
 # IDE0290: 使用主构造函数
 dotnet_diagnostic.IDE0290.severity = none
+
+# IDE0305: 简化集合初始化
+dotnet_diagnostic.IDE0305.severity = none
