@@ -1,4 +1,4 @@
-﻿namespace BitNebula.DevelopKit.Entity;
+﻿namespace BitNebula.DevelopKit.Entities;
 
 public interface IEntity<T> where T : IEquatable<T>
 {
