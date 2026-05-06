@@ -12,7 +12,7 @@
 		<RootNamespace>$(RootNamespacePrefix).$(MSBuildProjectName)</RootNamespace>
 		<AssemblyName>$(RootNamespacePrefix).$(MSBuildProjectName)</AssemblyName>
 		
-		<VersionPrefix>0.0.0.8</VersionPrefix>
+		<VersionPrefix>0.0.0.9</VersionPrefix>
 		<VersionSuffix>alpha</VersionSuffix>
 	</PropertyGroup>
 
@@ -43,6 +43,7 @@
 		<None Include="$(SolutionDir)LICENSE" Link="LICENSE" Pack="true" PackagePath="\" />
 	</ItemGroup>
 
+	<!-- 导入编译消息打印配置 -->
 	<Import Project="$(SolutionDir)BuildMessage.props" Condition="Exists('$(SolutionDir)BuildMessage.props')"/>
 
 </Project>
