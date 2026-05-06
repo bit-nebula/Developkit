@@ -10,9 +10,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".SolutionItmes", ".Solution
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
 		BuildMessage.props = BuildMessage.props
-		BuildPackage.props = BuildPackage.props
 		Custom.props = Custom.props
 		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
 		LICENSE = LICENSE
 		README.md = README.md
 	EndProjectSection
