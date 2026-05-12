@@ -10,9 +10,9 @@
 		<LangVersion>latest</LangVersion>
 		
 		<RootNamespace>$(RootNamespacePrefix).$(MSBuildProjectName)</RootNamespace>
-		<AssemblyName>$(RootNamespacePrefix).$(MSBuildProjectName)</AssemblyName>
+		<AssemblyName>$(AssemblyNamePrefix).$(MSBuildProjectName)</AssemblyName>
 		
-		<VersionPrefix>0.0.0.9</VersionPrefix>
+		<VersionPrefix>0.0.0.10</VersionPrefix>
 		<VersionSuffix>alpha</VersionSuffix>
 	</PropertyGroup>
 
