@@ -1,18 +1,22 @@
 <Project>
 
-	<Import Project="Custom.props"/>
+	<!-- Custom props -->
+	<PropertyGroup>
+		<MainAuthor>bit-nebula</MainAuthor>
+		<AssemblyNamePrefix>$(MainAuthor)</AssemblyNamePrefix>
+		<RootNamespacePrefix>BitNebula</RootNamespacePrefix>
+	</PropertyGroup>
 
 	<PropertyGroup>
 		<TargetFrameworks>net8.0;net9.0</TargetFrameworks>
-		
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<LangVersion>latest</LangVersion>
-		
+
 		<RootNamespace>$(RootNamespacePrefix).$(MSBuildProjectName)</RootNamespace>
 		<AssemblyName>$(AssemblyNamePrefix).$(MSBuildProjectName)</AssemblyName>
-		
-		<VersionPrefix>0.0.0.10</VersionPrefix>
+
+		<VersionPrefix>0.0.0.11</VersionPrefix>
 		<VersionSuffix>alpha</VersionSuffix>
 	</PropertyGroup>
 

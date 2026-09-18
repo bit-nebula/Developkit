@@ -2,7 +2,7 @@
 
 public class DirectoryHelper
 {
-    #region Group One
+    #region String -> String
 
     public static void CopyDirectory(string sourceDirectory, string targetPath)
     {
@@ -21,7 +21,7 @@ public class DirectoryHelper
 
     #endregion
 
-    #region Group Two
+    #region DirectoryInfo -> string
 
     public static void CopyDirectory(DirectoryInfo sourceDirectory, string targetPath)
     {
@@ -40,7 +40,7 @@ public class DirectoryHelper
 
     #endregion
 
-    #region Group Three
+    #region DirectoryInfo -> DirectoryInfo
 
     public static void CopyDirectory(DirectoryInfo sourceDirectory, DirectoryInfo targetDirectory)
     {

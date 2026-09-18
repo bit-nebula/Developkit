@@ -1,9 +1,0 @@
-<Project>
-
-  <PropertyGroup>
-	<MainAuthor>bit-nebula</MainAuthor>
-    <AssemblyNamePrefix>$(MainAuthor)</AssemblyNamePrefix>
-    <RootNamespacePrefix>BitNebula</RootNamespacePrefix>
-  </PropertyGroup>
-
-</Project>

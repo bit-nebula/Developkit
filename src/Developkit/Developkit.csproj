@@ -6,10 +6,6 @@
 
   <!-- 嵌套文件配置 -->
   <ItemGroup>
-    <!-- HttpResult.cs -->
-    <Compile Update="Network\Models\HttpResult.*.cs">
-      <DependentUpon>Network\Models\HttpResult.cs</DependentUpon>
-    </Compile>
     <!-- EncryptUtility.cs -->
     <Compile Update="Encrypt\EncryptUtility.*.cs">
       <DependentUpon>Encrypt\EncryptUtility.cs</DependentUpon>
