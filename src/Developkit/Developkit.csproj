@@ -10,6 +10,10 @@
     <Compile Update="Encrypt\EncryptUtility.*.cs">
       <DependentUpon>Encrypt\EncryptUtility.cs</DependentUpon>
     </Compile>
+		<!-- Port.cs -->
+		<Compile Update="Network\Port.const.cs">
+			<DependentUpon>Encrypt\Port.cs</DependentUpon>
+		</Compile>
   </ItemGroup>
 
   <ItemGroup>
