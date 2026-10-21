@@ -1,4 +1,4 @@
-<Project>
+﻿<Project>
 
   <Target Name="PrintBuildInfo" BeforeTargets="Build" Condition="'$(EnableBuildMessage)' == 'true' or '$(EnableBuildMessage)' == 'True'">
     <Message Text="======== Build Message ========" Importance="high" />
@@ -8,6 +8,8 @@
     <Message Text="AssemblyName: $(AssemblyName)" Importance="high" />
     <Message Text="Configuration: $(Configuration)" Importance="high" />
     <Message Text="TargetFramework: $(TargetFramework)" Importance="high" />
+    <Message Text="UseArtifactsOutput: $(UseArtifactsOutput)" Importance="high" />
+    <Message Text="ArtifactsPath: $(ArtifactsPath)" Importance="high" />
     <Message Text="OutputPath: $(OutputPath)" Importance="high" />
 	<Message Text="PackageOutputPath = $(PackageOutputPath)" Importance="high" />
 	<Message Text="==============================" Importance="high" />

@@ -1,14 +1,21 @@
-<Project>
+﻿<Project>
 
+	<!-- 在dotnet CLI 中执行发布编译命令时, SolutionDir 是空的 -->
+	<PropertyGroup Condition="'$(SolutionDir)' == ''">
+		<SolutionDir>$(MSBuildThisFileDirectory)</SolutionDir>
+	</PropertyGroup>
+	
 	<!-- Custom props -->
 	<PropertyGroup>
 		<MainAuthor>bit-nebula</MainAuthor>
 		<AssemblyNamePrefix>$(MainAuthor)</AssemblyNamePrefix>
 		<RootNamespacePrefix>BitNebula</RootNamespacePrefix>
+		<!-- 是否启用调试信息输出 -->
+		<EnableBuildMessage>true</EnableBuildMessage>
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+		<TargetFrameworks>net8.0;net9.0;net10.0;</TargetFrameworks>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<LangVersion>latest</LangVersion>
@@ -18,6 +25,11 @@
 
 		<VersionPrefix>0.0.0.11</VersionPrefix>
 		<VersionSuffix>alpha</VersionSuffix>
+
+		<!-- 启用集中式工件输出: 默认位置在 artifacts -->
+		<UseArtifactsOutput>true</UseArtifactsOutput>
+		<!-- 根据 .NET SDK 的设计，单独设置这个属性会隐式地将 UseArtifactsOutput 默认为 true，从而直接启用该功能。 -->
+		<ArtifactsPath>$(MSBuildThisFileDirectory)artifacts</ArtifactsPath>
 	</PropertyGroup>
 
 	<!-- Package props -->
@@ -26,10 +38,9 @@
 		<PackageId>$(MainAuthor).$(MSBuildProjectName)</PackageId>
 
 		<PackageOutputPath>$(SolutionDir)packages\$(PackageId)\</PackageOutputPath>
-
-		<!-- 生成的 Debug 版本放到其它目录以区别 -->
+		<PackageOutputPath Condition="$(UseArtifactsOutput)">$(ArtifactsPath)\packages\$(PackageId)\</PackageOutputPath>
 		<PackageOutputPath Condition="'$(Configuration)' == 'Debug'">$(PackageOutputPath)$(Configuration)\</PackageOutputPath>
-
+		
 		<!-- 版本号不带后缀时修改 Package 生成的目录 -->
 		<!--<PackageOutputPath Condition="'$(VersionSuffix)' != ''">$(SolutionDir)packages/$(VersionPrefix)-$(VersionSuffix)/</PackageOutputPath>-->
 
@@ -41,13 +52,13 @@
 			Some code snippets, try to avoid reinventing the wheel, all names in the preview version may undergo significant changes, please use with caution!
 		</Description>
 	</PropertyGroup>
-
+	
 	<!-- 共享项目就不要引用 LICENSE 文件了 -->
 	<ItemGroup Condition="'$(MSBuildProjectExtension)' != '.shproj'">
 		<None Include="$(SolutionDir)LICENSE" Link="LICENSE" Pack="true" PackagePath="\" />
 	</ItemGroup>
 
 	<!-- 导入编译消息打印配置 -->
-	<Import Project="$(SolutionDir)BuildMessage.props" Condition="Exists('$(SolutionDir)BuildMessage.props')"/>
+	<Import Project="$(SolutionDir)Directory.Message.props" Condition="Exists('$(SolutionDir)Directory.Message.props')"/>
 
 </Project>
