@@ -23,7 +23,7 @@
 		<RootNamespace>$(RootNamespacePrefix).$(MSBuildProjectName)</RootNamespace>
 		<AssemblyName>$(AssemblyNamePrefix).$(MSBuildProjectName)</AssemblyName>
 
-		<VersionPrefix>0.0.0.11</VersionPrefix>
+		<VersionPrefix>0.0.0.12</VersionPrefix>
 		<VersionSuffix>alpha</VersionSuffix>
 
 		<!-- 启用集中式工件输出: 默认位置在 artifacts -->
